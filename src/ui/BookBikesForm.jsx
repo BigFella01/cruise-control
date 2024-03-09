@@ -217,7 +217,7 @@ function BookBikesForm() {
       <Label>Beach Bike</Label>
       <StyledFormRowBike>
         <Image
-          src="../..src/assets/beach-bike.jpeg"
+          src="src/assets/beach-bike.jpeg"
           alt="beach bike"
           borderradius="10px"
         ></Image>
@@ -277,7 +277,7 @@ function BookBikesForm() {
       <Label>Road Bike</Label>
       <StyledFormRowBike>
         <Image
-          src="../..src/assets/road-bike.webp"
+          src="src/assets/road-bike.webp"
           alt="road bike"
           borderradius="10px"
         ></Image>
@@ -336,7 +336,7 @@ function BookBikesForm() {
       <Label>Electric Bike</Label>
       <StyledFormRowBike>
         <Image
-          src="../..src/assets/electric-bike.webp"
+          src="src/assets/electric-bike.webp"
           alt="eletric bike"
           borderradius="10px"
         ></Image>
