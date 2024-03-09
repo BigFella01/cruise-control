@@ -4,6 +4,7 @@ import eslint from "vite-plugin-eslint";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/cruise-control",
   plugins: [react(), eslint()],
   optimizeDeps: {
     exclude: ["react-hot-toast"],

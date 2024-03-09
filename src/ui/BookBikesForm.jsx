@@ -161,14 +161,14 @@ function BookBikesForm() {
         date: hourlyBookingDate,
         hourStart,
         hourEnd,
-        numHours
+        numHours,
       })
     );
     dispatch(
       setDailyBookingInfo({
         dateStart,
         dateEnd,
-        numDays
+        numDays,
       })
     );
     const orderId = Math.floor(Math.random() * 1000);
@@ -217,8 +217,8 @@ function BookBikesForm() {
       <Label>Beach Bike</Label>
       <StyledFormRowBike>
         <Image
-          src="../../src/assets/beach-bike.jpeg"
-          alt="road bike"
+          src="/Users/haydenjenkins/Desktop/cruise-control/src/assets/beach-bike.jpeg"
+          alt="beach bike"
           borderradius="10px"
         ></Image>
         <BikeInfo>
@@ -277,7 +277,7 @@ function BookBikesForm() {
       <Label>Road Bike</Label>
       <StyledFormRowBike>
         <Image
-          src="../../src/assets/road-bike.webp"
+          src="/Users/haydenjenkins/Desktop/cruise-control/src/assets/road-bike.webp"
           alt="road bike"
           borderradius="10px"
         ></Image>
@@ -336,7 +336,7 @@ function BookBikesForm() {
       <Label>Electric Bike</Label>
       <StyledFormRowBike>
         <Image
-          src="../../src/assets/electric-bike.webp"
+          src="/Users/haydenjenkins/Desktop/cruise-control/src/assets/electric-bike.webp"
           alt="eletric bike"
           borderradius="10px"
         ></Image>
