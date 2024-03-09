@@ -6,6 +6,6 @@ import eslint from "vite-plugin-eslint";
 export default defineConfig({
   plugins: [react(), eslint()],
   optimizeDeps: {
-    exclude: ['react-hot-toast']
-  }
+    exclude: ["react-hot-toast"],
+  },
 });
