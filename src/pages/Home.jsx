@@ -93,7 +93,7 @@ function Home() {
         <FlexContentSection ref={refOne}>
           <Image
             alt="people riding bicycles"
-            src="public/biking1.jpeg"
+            src="/biking1.jpeg"
           ></Image>
           <InfoText>
             Bikes can be rented daily for up to five days. Prices start at $20 a
@@ -107,13 +107,13 @@ function Home() {
           </InfoText>
           <Image
             alt="someone riding bicycle at sunset"
-            src="public/biking2.jpeg"
+            src="/biking2.jpeg"
           ></Image>
         </FlexContentSection>
         <FlexContentSection ref={refThree}>
           <Image
             alt="people riding bicycles downtown"
-            src="public/biking3.jpeg"
+            src="/biking3.jpeg"
           ></Image>
           <InfoText>
             Pensacola provides a great selection of places to ride, including the beach and downtown. 
