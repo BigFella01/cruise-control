@@ -277,7 +277,7 @@ function BookBikesForm() {
       <Label>Road Bike</Label>
       <StyledFormRowBike>
         <Image
-          src="public/road-bike.jpeg"
+          src="public/road-bike.webp"
           alt="road bike"
           borderradius="10px"
         ></Image>
