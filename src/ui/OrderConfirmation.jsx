@@ -7,6 +7,7 @@ import ConfirmationBike from "./ConfirmationInfoBike";
 import { useParams } from "react-router-dom";
 import Label from "./Label";
 import { formatCurrency, formatDateRange } from "../utilities/helpers";
+import { useEffect, useState } from "react";
 
 const MainContainer = styled.div`
   padding: 4rem;
@@ -28,6 +29,7 @@ const Text = styled.p`
 `;
 
 function OrderConfirmation() {
+  const [hasHitLimit, setHasHitLimit] = useState(false);
   const { orderId } = useParams();
 
   const {
@@ -61,8 +63,12 @@ function OrderConfirmation() {
     },
   };
 
-  if (isLoading) return <FaSpinner />;
-  if (!booking) return <Title padding="4rem">No booking was found.</Title>;
+  useEffect(() => {
+    setTimeout(() => setHasHitLimit(true), 5000);
+  }, []);
+
+  if (isLoading || !booking) return <FaSpinner />;
+  if (!booking && hasHitLimit) return <Title padding="4rem">No booking was found.</Title>;
   return (
     <MainContainer>
       <Title margin="0 0 2rem 0">

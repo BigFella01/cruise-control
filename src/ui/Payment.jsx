@@ -90,9 +90,9 @@ const InfoPiece = styled.p`
 `;
 
 function Payment() {
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const [cardNum, setCardNum] = useState("");
 
@@ -262,7 +262,7 @@ function Payment() {
                   <InfoPiece margin="3rem 0 0 0">
                     Rental period:{" "}
                     {isDaily
-                      ? `${dailyBookingInfo?.dateStart} - ${dailyBookingInfo?.dateEnd}`
+                      ? `${dailyBookingInfo?.dateStart} to ${dailyBookingInfo?.dateEnd}`
                       : `${hourlyBookingInfo?.date} from ${hourlyBookingInfo.hourStart} - ${hourlyBookingInfo.hourEnd}`}{" "}
                     (
                     {isDaily
