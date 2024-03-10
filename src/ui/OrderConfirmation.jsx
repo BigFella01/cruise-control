@@ -46,17 +46,17 @@ function OrderConfirmation() {
   const bikes = {
     beach: {
       model: "Chatham Beach Cruiser Bike",
-      image: "../../src/assets/beach-bike.jpeg",
+      image: "/beach-bike.jpeg",
       quantity: booking?.numBeachBikes,
     },
     road: {
       model: "Polygon Strattos S5 Road",
-      image: "../../src/assets/road-bike.webp",
+      image: "/road-bike.webp",
       quantity: booking?.numRoadBikes,
     },
     electric: {
       model: "Spirit Electric Road Bike",
-      image: "../../src/assets/electric-bike.webp",
+      image: "/electric-bike.webp",
       quantity: booking?.numElectricBikes,
     },
   };

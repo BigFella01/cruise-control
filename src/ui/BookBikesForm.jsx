@@ -118,7 +118,7 @@ function BookBikesForm() {
     beach: {
       category: "beach",
       model: "Chatham Beach Cruiser Bike",
-      image: "../../src/assets/beach-bike.jpeg",
+      image: "/beach-bike.jpeg",
       quantity: 1,
       hourlyRate: 5,
       dailyRate: 20,
@@ -127,7 +127,7 @@ function BookBikesForm() {
     road: {
       category: "road",
       model: "Polygon Strattos S5 Road",
-      image: "../../src/assets/road-bike.webp",
+      image: "/road-bike.webp",
       quantity: 1,
       hourlyRate: 7,
       dailyRate: 28,
@@ -136,7 +136,7 @@ function BookBikesForm() {
     electric: {
       category: "electric",
       model: "Spirit Electric Road Bike",
-      image: "../../src/assets/electric-bike.webp",
+      image: "/electric-bike.webp",
       quantity: 1,
       hourlyRate: 10,
       dailyRate: 40,
