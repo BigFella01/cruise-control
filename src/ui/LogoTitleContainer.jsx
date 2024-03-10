@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import logo from "../assets/logo.svg";
+import logo from "/logo.svg";
 import { NavLink as BaseNavLink } from "react-router-dom";
 const StyledLogoTitleContainer = styled.div`
   display: flex;
@@ -16,8 +16,6 @@ const Title = styled(BaseNavLink)`
   margin-top: 10px;
   font-weight: 700;
 `;
-
-
 
 function LogoTitleContainer() {
   return (
