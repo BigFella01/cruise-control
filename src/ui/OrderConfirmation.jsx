@@ -40,7 +40,7 @@ function OrderConfirmation() {
   });
 
   const booking = bookings?.find(
-    (booking) => booking.idNative === Number(orderId)
+    (booking) => booking?.idNative === Number(orderId)
   );
 
   const bikes = {
@@ -65,7 +65,9 @@ function OrderConfirmation() {
   if (!booking) return <Title padding="4rem">No booking was found.</Title>;
   return (
     <MainContainer>
-      <Title margin="0 0 2rem 0">Order Identification #{booking?.idNative}</Title>
+      <Title margin="0 0 2rem 0">
+        Order Identification #{booking?.idNative}
+      </Title>
       <Text>
         <Label>Name: </Label>
         {booking?.fullName}
