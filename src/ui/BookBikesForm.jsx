@@ -81,6 +81,7 @@ function BookBikesForm() {
 
   const [hourStart, setHourStart] = useState("");
   const [hourEnd, setHourEnd] = useState("");
+  console.log(hourStart, hourEnd);
   const [hourlyBookingDate, setHourlyBookingDate] = useState("");
   const [dateStart, setDateStart] = useState("");
   const [dateEnd, setDateEnd] = useState("");
@@ -146,15 +147,27 @@ function BookBikesForm() {
 
   function onFormSubmit(data) {
     const numHours = hoursBetweenTimes(hourStart, hourEnd);
+    console.log(numHours);
     const numDays = daysBetweenDates(new Date(dateStart), new Date(dateEnd));
-    if (!isDaily && numHours > 6)
+    console.log(numDays);
+    if (!isDaily && numHours > 6) {
       toast.error("Bikes can be rented for a maximum of six hours");
-    if (!isDaily && numHours === 0)
+      return;
+    }
+
+    if (!isDaily && !numHours) {
       toast.error("Bikes must be rented for at least one hour");
-    if (isDaily && numDays > 6)
+      return;
+    }
+
+    if (isDaily && numDays > 6) {
       toast.error("Bikes can be rented for a maximum of six days");
-    if (isDaily && numDays === 0) {
+      return;
+    }
+
+    if (isDaily && !numDays) {
       toast.error("Bikes must be rented for at least one day");
+      return;
     }
     dispatch(
       setHourlyBookingInfo({
@@ -536,6 +549,7 @@ function BookBikesForm() {
                     onChange: (e) => setHourStart(e.target.value),
                   })}
                 >
+                  <option></option>
                   <option value="07:00">07:00</option>
                   <option value="08:00">08:00</option>
                   <option value="09:00">09:00</option>
@@ -555,6 +569,8 @@ function BookBikesForm() {
                   Please select a start time for your hourly rental
                 </FormError>
               )}
+            </FlexContainer>
+            <FlexContainer justifycontent="space-between" margin="1rem 0">
               <FlexContainer gap="1rem" alignitems="center">
                 <Label htmlFor="hourEndTimes">End time:</Label>
                 <select
@@ -567,6 +583,7 @@ function BookBikesForm() {
                     onChange: (e) => setHourEnd(e.target.value),
                   })}
                 >
+                  <option></option>
                   <option value="08:00">08:00</option>
                   <option value="09:00">09:00</option>
                   <option value="10:00">10:00</option>
@@ -581,12 +598,12 @@ function BookBikesForm() {
                   <option value="19:00">07:00</option>
                 </select>
               </FlexContainer>
+              {errors?.setHourEnd && (
+                <FormError>
+                  Please select an end time for your hourly rental
+                </FormError>
+              )}
             </FlexContainer>
-            {errors?.setHourEnd && (
-              <FormError>
-                Please select an end time for your hourly rental
-              </FormError>
-            )}
           </>
         )}
       </FlexContainer>

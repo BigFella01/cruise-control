@@ -17,7 +17,9 @@ const BikesContainer = styled.div`
   width: 100%;
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, 25%);
+  @media (min-width: 475px) {
+    grid-template-columns: repeat(auto-fit, 25%);
+  }
   gap: 1rem;
 `;
 
@@ -44,6 +46,7 @@ function OrderConfirmation() {
   const booking = bookings?.find(
     (booking) => booking?.idNative === Number(orderId)
   );
+  console.log(booking);
 
   const bikes = {
     beach: {
@@ -64,11 +67,12 @@ function OrderConfirmation() {
   };
 
   useEffect(() => {
-    setTimeout(() => setHasHitLimit(true), 5000);
+    setTimeout(() => setHasHitLimit(true), 10000);
   }, []);
 
-  if (isLoading || !booking) return <FaSpinner />;
-  if (!booking && hasHitLimit) return <Title padding="4rem">No booking was found.</Title>;
+  if (isLoading) return <FaSpinner />;
+  if (hasHitLimit && isLoading)
+    return <Title padding="4rem">No booking was found.</Title>;
   return (
     <MainContainer>
       <Title margin="0 0 2rem 0">
