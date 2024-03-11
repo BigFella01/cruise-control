@@ -155,7 +155,7 @@ function BookBikesForm() {
       return;
     }
 
-    if (!isDaily && (!numHours || numHours < 0 )) {
+    if (!isDaily && (!numHours || numHours < 0 || isNaN(numHours))) {
       toast.error("Bikes must be rented for at least one hour");
       return;
     }
@@ -165,7 +165,7 @@ function BookBikesForm() {
       return;
     }
 
-    if (isDaily && (!numDays || numDays < 0)) {
+    if (isDaily && (!numDays || numDays < 0 || isNaN(numDays))) {
       toast.error("Bikes must be rented for at least one day");
       return;
     }
