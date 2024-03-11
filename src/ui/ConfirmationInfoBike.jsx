@@ -16,7 +16,6 @@ import FlexContainer from "./FlexContainer";
 
 const StyledConfirmationBike = styled.div`
   display: grid;
-  outline: 1px solid red;
   gap: 0.5rem;
   padding: 2rem;
   background-color: var(--color-grey-0);
@@ -48,8 +47,9 @@ function ConfirmationBike({ bike, each, counter, total }) {
       <FlexContainer>
         <Label>
           <Title>Quantity</Title>
+          :
         </Label>
-        :
+        
         {counter ? (
           <Counter>
             <Button
