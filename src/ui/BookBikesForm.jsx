@@ -38,15 +38,15 @@ import { daysBetweenDates, hoursBetweenTimes } from "../utilities/helpers";
 import toast from "react-hot-toast";
 
 const StyledFormRowBike = styled(FormRow)`
+  display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr auto auto;
   padding: 1rem;
   background-color: var(--color-grey-0);
   border-radius: 15px;
   margin-top: 1rem;
 
-  @media (min-width: 500px) {
-    grid-template-columns: auto auto 25%;
+  @media (min-width: 575px) {
+    grid-template-columns: 40% 30% 30%;
     grid-template-rows: 1fr;
     align-items: center;
     justify-items: center;
