@@ -71,7 +71,7 @@ function OrderConfirmation() {
   }, []);
 
   if (isLoading) return <FaSpinner />;
-  if (hasHitLimit && isLoading)
+  if (hasHitLimit && isLoading && !booking)
     return <Title padding="4rem">No booking was found.</Title>;
   return (
     <MainContainer>

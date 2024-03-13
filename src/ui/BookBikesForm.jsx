@@ -45,7 +45,7 @@ const StyledFormRowBike = styled(FormRow)`
   border-radius: 15px;
   margin-top: 1rem;
 
-  @media (min-width: 575px) {
+  @media (min-width: 500px) {
     grid-template-columns: 40% 30% 30%;
     grid-template-rows: 1fr;
     align-items: center;
@@ -146,9 +146,12 @@ function BookBikesForm() {
   };
 
   function onFormSubmit(data) {
-    const numHours = hoursBetweenTimes(hourStart, hourEnd);
+    const numHours =
+      hourlyBookingInfo?.numHours || hoursBetweenTimes(hourStart, hourEnd);
     console.log(numHours);
-    const numDays = daysBetweenDates(new Date(dateStart), new Date(dateEnd));
+    const numDays =
+      dailyBookingInfo?.numDays ||
+      daysBetweenDates(new Date(dateStart), new Date(dateEnd));
     console.log(numDays);
     if (!isDaily && numHours > 6) {
       toast.error("Bikes can be rented for a maximum of six hours");
@@ -629,3 +632,6 @@ export default BookBikesForm;
 
 // When the user sets daily to false, all daily info is reset.
 // When the user sets daily to true, all hourly info is reset.
+
+// The problem is that once we submit daily or hourly booking
+// state, if we never fulfill that order, i

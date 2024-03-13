@@ -10,7 +10,11 @@ export const FormRow = styled.div`
 `;
 
 export const FormRowSplit = styled(FormRow)`
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 555px) {
+    grid-template-columns: 1fr 1fr
+  }
 `
 
 export const FormRowBike = styled(FormRow)`

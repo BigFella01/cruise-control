@@ -19,7 +19,7 @@ const StyledConfirmationBike = styled.div`
   gap: 0.5rem;
   padding: 2rem;
   background-color: var(--color-grey-0);
-  width: ${props => props.width};
+  width: ${(props) => props.width};
   font-size: 3.2vw;
 `;
 
@@ -30,7 +30,7 @@ const BottomInfo = styled.div`
 
 function ConfirmationBike({ bike, each, counter, total }) {
   const dispatch = useDispatch();
-  const isDaily = useSelector(getIsDaily)
+  const isDaily = useSelector(getIsDaily);
 
   return (
     <StyledConfirmationBike>
@@ -41,20 +41,20 @@ function ConfirmationBike({ bike, each, counter, total }) {
 
       {each && (
         <Label>
-          <Title>Each</Title>: {formatCurrency(isDaily ? bike.dailyRate : bike.hourlyRate)}
+          <Title>Each</Title>:{" "}
+          {formatCurrency(isDaily ? bike.dailyRate : bike.hourlyRate)}
         </Label>
       )}
       <FlexContainer>
         <Label>
-          <Title>Quantity</Title>
-          :
+          <Title>Quantity</Title>:
         </Label>
-        
+
         {counter ? (
           <Counter>
             <Button
               size="small"
-              variation="secondary"
+              variation="toggle"
               onClick={(e) => {
                 e.preventDefault();
                 dispatch(decreaseItemQuantity(`${bike.category}`));
@@ -62,10 +62,10 @@ function ConfirmationBike({ bike, each, counter, total }) {
             >
               <FaAngleLeft />
             </Button>
-            <span>{bike.quantity}</span>
+            <span style={{ fontSize: "1.5rem" }}>{bike.quantity}</span>
             <Button
               size="small"
-              variation="secondary"
+              variation="toggle"
               onClick={(e) => {
                 e.preventDefault();
                 dispatch(increaseItemQuantity(`${bike.category}`));

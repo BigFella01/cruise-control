@@ -148,7 +148,12 @@ function Payment() {
       totalPrice,
       paymentLastFour: cardNum.substring(cardNum.length - 4),
     };
-    // console.log(newBooking);
+    if (!hourlyBookingInfo.numHours && !dailyBookingInfo.numDays) {
+      toast.error(
+        "Please go back and provide information about when the booking will take place"
+      );
+      return;
+    }
     mutate(newBooking);
     navigate(`/book/confirmation/${orderId}`);
     dispatch(resetBookingState());
@@ -169,10 +174,12 @@ function Payment() {
             </IconContainer>
           </FlexContainer>
           <Input
+            type="number"
             width="100%"
             name="cardNumber"
             placeholder="1234 5678 9012 3456"
             {...register("cardNumber", {
+              valueAsNumber: true,
               required: "Card number must be entered",
               onChange: (e) => setCardNum(e.target.value),
             })}
@@ -201,11 +208,12 @@ function Payment() {
               name="expiryDate"
               placeholder="11/27"
               {...register("expiryDate", {
-                required: "Card expiry date must be entered",
+                required: true,
+                pattern: /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/,
               })}
             />
             {errors?.expiryDate && (
-              <FormError>{errors.expiryDate.message}</FormError>
+              <FormError>Expiration date must be correct format</FormError>
             )}
           </div>
           <div>
@@ -216,11 +224,12 @@ function Payment() {
               placeholder="Ex. 112"
               type="password"
               {...register("securityCode", {
-                required: "Security code must be entered",
+                required: true,
+                maxLength: 3,
               })}
             />
             {errors?.securityCode && (
-              <FormError>{errors.securityCode.message}</FormError>
+              <FormError>Security code must be correct format</FormError>
             )}
           </div>
         </FormRowSplit>
