@@ -42,11 +42,10 @@ function OrderConfirmation() {
     queryKey: ["bookings"],
     queryFn: getBookings,
   });
-  console.log(isLoading, bookings)
+
   const booking = bookings?.find(
     (booking) => booking?.idNative === Number(orderId)
   );
-  console.log(booking);
 
   const bikes = {
     beach: {
@@ -70,51 +69,55 @@ function OrderConfirmation() {
     setTimeout(() => setHasHitLimit(true), 10000);
   }, []);
 
-  if (isLoading && !booking) return <FaSpinner />;
+  if (isLoading) return <FaSpinner />;
   if (hasHitLimit && !booking)
     return <Title padding="4rem">No booking was found.</Title>;
-  return (
-    <MainContainer>
-      <Title margin="0 0 2rem 0">
-        Order Identification #{booking?.idNative}
-      </Title>
-      <Text>Thank you for your order! You will receive a text message as soon as your equipment is ready!</Text>
-      <Text>
-        <Label>Name: </Label>
-        {booking?.fullName}
-      </Text>
-      <Text>
-        <Label>Phone number: </Label>
-        {booking?.phoneNumber}
-      </Text>
-      <Text>
-        <Label>Rental period: </Label>
-        {booking?.isDaily
-          ? `${booking?.dateStart} - ${booking?.dateEnd}`
-          : `${booking?.hourlyBookingDate} from ${booking?.hourStart} - ${booking?.hourEnd}`}{" "}
-        (
-        {booking?.isDaily
-          ? `${booking?.numDays} days`
-          : `${booking?.numHours} hours`}
-        )
-      </Text>
-      <Text>
-        Paid with card ending in {booking?.paymentLastFour} (
-        {formatCurrency(booking?.totalPrice)})
-      </Text>
-      <BikesContainer>
-        {Array.from({ length: booking?.numBeachBikes }, () => {
-          return <ConfirmationBike bike={bikes["beach"]} />;
-        })}
-        {Array.from({ length: booking?.numRoadBikes }, () => {
-          return <ConfirmationBike bike={bikes["road"]} />;
-        })}
-        {Array.from({ length: booking?.numElectricBikes }, () => {
-          return <ConfirmationBike bike={bikes["electric"]} />;
-        })}
-      </BikesContainer>
-    </MainContainer>
-  );
+  if (booking)
+    return (
+      <MainContainer>
+        <Title margin="0 0 2rem 0">
+          Order Identification #{booking?.idNative}
+        </Title>
+        <Text>
+          Thank you for your order! You will receive a text message as soon as
+          your equipment is ready!
+        </Text>
+        <Text>
+          <Label>Name: </Label>
+          {booking?.fullName}
+        </Text>
+        <Text>
+          <Label>Phone number: </Label>
+          {booking?.phoneNumber}
+        </Text>
+        <Text>
+          <Label>Rental period: </Label>
+          {booking?.isDaily
+            ? `${booking?.dateStart} - ${booking?.dateEnd}`
+            : `${booking?.hourlyBookingDate} from ${booking?.hourStart} - ${booking?.hourEnd}`}{" "}
+          (
+          {booking?.isDaily
+            ? `${booking?.numDays} days`
+            : `${booking?.numHours} hours`}
+          )
+        </Text>
+        <Text>
+          Paid with card ending in {booking?.paymentLastFour} (
+          {formatCurrency(booking?.totalPrice)})
+        </Text>
+        <BikesContainer>
+          {Array.from({ length: booking?.numBeachBikes }, () => {
+            return <ConfirmationBike bike={bikes["beach"]} />;
+          })}
+          {Array.from({ length: booking?.numRoadBikes }, () => {
+            return <ConfirmationBike bike={bikes["road"]} />;
+          })}
+          {Array.from({ length: booking?.numElectricBikes }, () => {
+            return <ConfirmationBike bike={bikes["electric"]} />;
+          })}
+        </BikesContainer>
+      </MainContainer>
+    );
 }
 
 export default OrderConfirmation;

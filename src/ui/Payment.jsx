@@ -155,9 +155,11 @@ function Payment() {
       return;
     }
     mutate(newBooking);
-    navigate(`/book/confirmation/${orderId}`);
-    dispatch(resetBookingState());
-    dispatch(resetUserState());
+    setTimeout(() => {
+      navigate(`/book/confirmation/${orderId}`);
+      dispatch(resetBookingState());
+      dispatch(resetUserState());
+    }, 1000);
   }
 
   return (
