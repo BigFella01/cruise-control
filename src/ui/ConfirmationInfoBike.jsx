@@ -45,7 +45,7 @@ function ConfirmationBike({ bike, each, counter, total }) {
           {formatCurrency(isDaily ? bike.dailyRate : bike.hourlyRate)}
         </Label>
       )}
-      <FlexContainer>
+      <FlexContainer alignitems="center">
         <Label>
           <Title>Quantity</Title>:
         </Label>
@@ -75,7 +75,7 @@ function ConfirmationBike({ bike, each, counter, total }) {
             </Button>
           </Counter>
         ) : (
-          <span>{bike.quantity}</span>
+          <Label margin="0 0 0 1rem">{bike.quantity}</Label>
         )}
       </FlexContainer>
       {total && (

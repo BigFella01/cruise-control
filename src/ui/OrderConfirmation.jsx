@@ -42,7 +42,7 @@ function OrderConfirmation() {
     queryKey: ["bookings"],
     queryFn: getBookings,
   });
-
+  console.log(isLoading, bookings)
   const booking = bookings?.find(
     (booking) => booking?.idNative === Number(orderId)
   );
@@ -70,14 +70,15 @@ function OrderConfirmation() {
     setTimeout(() => setHasHitLimit(true), 10000);
   }, []);
 
-  if (isLoading) return <FaSpinner />;
-  if (hasHitLimit && isLoading && !booking)
+  if (isLoading && !booking) return <FaSpinner />;
+  if (hasHitLimit && !booking)
     return <Title padding="4rem">No booking was found.</Title>;
   return (
     <MainContainer>
       <Title margin="0 0 2rem 0">
         Order Identification #{booking?.idNative}
       </Title>
+      <Text>Thank you for your order! You will receive a text message as soon as your equipment is ready!</Text>
       <Text>
         <Label>Name: </Label>
         {booking?.fullName}

@@ -57,7 +57,7 @@ const BikeInfo = styled.div`
   overflow-y: scroll;
   background: var(--color-grey-100);
   padding: 1.5rem;
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 1.5rem, 2rem);
   color: var(--color-cyan-900);
 `;
 
