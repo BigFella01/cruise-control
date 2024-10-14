@@ -81,7 +81,6 @@ function BookBikesForm() {
 
   const [hourStart, setHourStart] = useState("");
   const [hourEnd, setHourEnd] = useState("");
-  console.log(hourStart, hourEnd);
   const [hourlyBookingDate, setHourlyBookingDate] = useState("");
   const [dateStart, setDateStart] = useState("");
   const [dateEnd, setDateEnd] = useState("");
@@ -148,11 +147,9 @@ function BookBikesForm() {
   function onFormSubmit(data) {
     const numHours =
       hourlyBookingInfo?.numHours || hoursBetweenTimes(hourStart, hourEnd);
-    console.log(numHours);
     const numDays =
       dailyBookingInfo?.numDays ||
       daysBetweenDates(new Date(dateStart), new Date(dateEnd));
-    console.log(numDays);
     if (!isDaily && numHours > 6) {
       toast.error("Bikes can be rented for a maximum of six hours");
       return;

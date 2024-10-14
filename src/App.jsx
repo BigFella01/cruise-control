@@ -11,8 +11,6 @@ import Payment from "./ui/Payment";
 import OrderConfirmation from "./ui/OrderConfirmation";
 import { Toaster } from "react-hot-toast";
 
-// import { Provider } from "react-redux";
-// import store from "./store";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -88,7 +86,5 @@ export default App;
 // types.
 
 // Business name: Cruise Control
-
-// const API_KEY_NASA = "DZ1pUoPpml5vxj4B9zgbCX4deqd3IgndKMk8XK5d";
 
 // const BIKE_SITE_DATABASE_PASSWORD = '0BInn1vk0dZhTYvr'

@@ -44,7 +44,7 @@ function OrderConfirmation() {
   });
 
   const booking = bookings?.find(
-    (booking) => booking?.idNative === Number(orderId)
+    (booking) => booking?.idNative === orderId
   );
 
   const bikes = {

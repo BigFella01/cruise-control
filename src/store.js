@@ -24,12 +24,3 @@ const store = configureStore({
 
 export const persistor = persistStore(store);
 export default store;
-
-// const store = configureStore({
-//   reducer: {
-//     user: userReducer,
-//     booking: bookingReducer
-//   }
-// })
-
-// export default store

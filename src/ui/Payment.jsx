@@ -131,23 +131,25 @@ function Payment() {
 
   function onFormSubmit() {
     const newBooking = {
-      idNative: orderId,
-      fullName: fullName,
-      phoneNumber: Number(phoneNumber),
-      numBeachBikes: beachBikes.length,
-      numRoadBikes: roadBikes.length,
-      numElectricBikes: electricBikes.length,
-      isDaily,
-      hourlyBookingDate: hourlyBookingInfo.date,
-      hourStart: hourlyBookingInfo.hourStart,
-      hourEnd: hourlyBookingInfo.hourEnd,
-      numHours: hourlyBookingInfo.numHours,
-      dateStart: dailyBookingInfo.dateStart,
-      dateEnd: dailyBookingInfo.dateEnd,
-      numDays: dailyBookingInfo.numDays,
-      totalPrice,
-      paymentLastFour: cardNum.substring(cardNum.length - 4),
+      idNative: orderId, // string
+      fullName: fullName, // string
+      phoneNumber: Number(phoneNumber), // number
+      numBeachBikes: beachBikes.length, // number
+      numRoadBikes: roadBikes.length, // number
+      numElectricBikes: electricBikes.length, // number
+      isDaily, // boolean
+      hourlyBookingDate: hourlyBookingInfo.date, // string
+      hourStart: hourlyBookingInfo.hourStart, // string
+      hourEnd: hourlyBookingInfo.hourEnd, // string
+      numHours: hourlyBookingInfo.numHours, // number
+      dateStart: dailyBookingInfo.dateStart, // string
+      dateEnd: dailyBookingInfo.dateEnd, // string
+      numDays: dailyBookingInfo.numDays, // number
+      totalPrice, // number
+      paymentLastFour: cardNum.substring(cardNum.length - 4), // string
     };
+    console.log(typeof Number(phoneNumber))
+
     if (!hourlyBookingInfo.numHours && !dailyBookingInfo.numDays) {
       toast.error(
         "Please go back and provide information about when the booking will take place"
@@ -159,7 +161,7 @@ function Payment() {
       navigate(`/book/confirmation/${orderId}`);
       dispatch(resetBookingState());
       dispatch(resetUserState());
-    }, 1000);
+    }, 3000);
   }
 
   return (
