@@ -260,7 +260,7 @@ function BookBikesForm() {
                 >
                   <FaAngleLeft />
                 </Button>
-                <span>{beachBikes[0]?.quantity}</span>
+                <span>13</span>
                 <Button
                   size="small"
                   variation="secondary"
@@ -319,7 +319,7 @@ function BookBikesForm() {
               >
                 <FaAngleLeft />
               </Button>
-              <span>{roadBikes[0]?.quantity}</span>
+              <span>24</span>
               <Button
                 size="small"
                 variation="secondary"
@@ -381,7 +381,7 @@ function BookBikesForm() {
                 >
                   <FaAngleLeft />
                 </Button>
-                <span>{electricBikes[0]?.quantity}</span>
+                <span>27</span>
                 <Button
                   size="small"
                   variation="secondary"
