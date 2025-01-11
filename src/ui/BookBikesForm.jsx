@@ -260,7 +260,7 @@ function BookBikesForm() {
                 >
                   <FaAngleLeft />
                 </Button>
-                <span>13</span>
+                <span>{beachBikes[0]?.quantity}</span>
                 <Button
                   size="small"
                   variation="secondary"
@@ -319,7 +319,7 @@ function BookBikesForm() {
               >
                 <FaAngleLeft />
               </Button>
-              <span>24</span>
+              <span>{roadBikes[0]?.quantity}</span>
               <Button
                 size="small"
                 variation="secondary"
@@ -343,7 +343,7 @@ function BookBikesForm() {
             </Button>
           )}
 
-          <Label>Available: {checkAvailability("road")}</Label>
+          <Label>Available: 24</Label>
         </RightSideInfo>
       </StyledFormRowBike>
       <Label>Electric Bike</Label>
@@ -381,7 +381,7 @@ function BookBikesForm() {
                 >
                   <FaAngleLeft />
                 </Button>
-                <span>27</span>
+                <span>{electricBikes[0]?.quantity}</span>
                 <Button
                   size="small"
                   variation="secondary"
@@ -405,7 +405,7 @@ function BookBikesForm() {
               </Button>
             )}
           </FlexContainer>
-          <Label>Available: {checkAvailability("electric")}</Label>
+          <Label>Available: 27</Label>
         </RightSideInfo>
       </StyledFormRowBike>
       <input
