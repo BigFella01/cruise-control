@@ -14,9 +14,6 @@ const StyledAppLayout = styled.div`
 const Main = styled.main`
   border-top: 1px solid var(--color-grey-100);
   border-bottom: 1px solid var(--color-grey-100);
-  /* padding: 4rem 2.5rem 6.4rem; */
-  // This is the padding we will use on every element
-  // inside main
 `;
 
 function AppLayout() {

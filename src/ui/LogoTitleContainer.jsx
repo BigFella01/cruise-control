@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import logo from "/logo.svg";
 import { NavLink as BaseNavLink } from "react-router-dom";
+
 const StyledLogoTitleContainer = styled.div`
   display: flex;
   gap: 1rem;

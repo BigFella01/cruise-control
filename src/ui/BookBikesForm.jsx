@@ -107,11 +107,11 @@ function BookBikesForm() {
   } = useForm();
 
   function checkAvailability(bikeCategory) {
-    const numAvailableBikes = bikes
-      ?.filter((bike) => bike.category === bikeCategory)
-      .filter((bike) => bike.status === "available").length;
+    const numAvailableBikes = bikes?.filter(
+      (bike) => bike.category === bikeCategory
+    );
 
-    return numAvailableBikes;
+    return numAvailableBikes?.length;
   }
 
   const bikeObjects = {
@@ -188,10 +188,6 @@ function BookBikesForm() {
     dispatch(setBookingId(orderId));
     navigate(`/book/payment/${orderId}`);
   }
-
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
 
   return (
     <Form onSubmit={handleSubmit(onFormSubmit)}>
@@ -284,7 +280,7 @@ function BookBikesForm() {
               </Button>
             )}
           </FlexContainer>
-          <Label>Available: {checkAvailability("road")}</Label>
+          <Label>Available: {checkAvailability('beach')}</Label>
         </RightSideInfo>
       </StyledFormRowBike>
       <Label>Road Bike</Label>
@@ -343,7 +339,7 @@ function BookBikesForm() {
             </Button>
           )}
 
-          <Label>Available: 24</Label>
+          <Label>Available: {checkAvailability('road')}</Label>
         </RightSideInfo>
       </StyledFormRowBike>
       <Label>Electric Bike</Label>
@@ -405,7 +401,7 @@ function BookBikesForm() {
               </Button>
             )}
           </FlexContainer>
-          <Label>Available: 27</Label>
+          <Label>Available: {checkAvailability('electric')}</Label>
         </RightSideInfo>
       </StyledFormRowBike>
       <input
@@ -478,8 +474,7 @@ function BookBikesForm() {
                 value={dateStart}
                 {...register("setDateStart", {
                   required: true,
-                  message: "Please select a beginning date for your rental",
-                  min: new Date(currentDate.setDate(currentDate.getDate() + 1))
+                  min: new Date(currentDate.setDate(currentDate.getDate()))
                     .toISOString()
                     .slice(0, 10),
                   onChange: (e) => setDateStart(e.target.value),

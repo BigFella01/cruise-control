@@ -1,8 +1,4 @@
-import {
-  NavLink as BaseNavLink,
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { NavLink as BaseNavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useEffect, useRef, useState } from "react";
 import HamburgerIcon from "./HamburgerIcon";
@@ -125,11 +121,6 @@ function AppNav() {
     closeMobileNav();
   }, [location]);
 
-  useEffect(() => {
-    // This useEffect will listen for a scroll event and
-    // change the styling of the navbar when the user scrolls
-    // to a certain point
-  });
 
   // This is a custom hook imported from our the hooks folder.
   // This custom hook receives an element and a handler function

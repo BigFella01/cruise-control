@@ -6,8 +6,7 @@ import styled from "styled-components";
 import ConfirmationBike from "./ConfirmationInfoBike";
 import { useParams } from "react-router-dom";
 import Label from "./Label";
-import { formatCurrency, formatDateRange } from "../utilities/helpers";
-import { useEffect, useState } from "react";
+import { formatCurrency } from "../utilities/helpers";
 
 const MainContainer = styled.div`
   padding: 4rem;
@@ -31,7 +30,6 @@ const Text = styled.p`
 `;
 
 function OrderConfirmation() {
-  const [hasHitLimit, setHasHitLimit] = useState(false);
   const { orderId } = useParams();
 
   const {
@@ -44,7 +42,7 @@ function OrderConfirmation() {
   });
 
   const booking = bookings?.find(
-    (booking) => booking?.idNative === orderId
+    (booking) => booking?.idNative === Number(orderId)
   );
 
   const bikes = {
@@ -65,13 +63,8 @@ function OrderConfirmation() {
     },
   };
 
-  useEffect(() => {
-    setTimeout(() => setHasHitLimit(true), 10000);
-  }, []);
-
   if (isLoading) return <FaSpinner />;
-  if (hasHitLimit && !booking)
-    return <Title padding="4rem">No booking was found.</Title>;
+
   if (booking)
     return (
       <MainContainer>
@@ -122,13 +115,4 @@ function OrderConfirmation() {
 
 export default OrderConfirmation;
 
-// all information to be submitted to Bookings table:
 
-// Once the booking has been posted, the user will be
-// able to search for their booking with their phone
-// number. The booking retrieved will contain the following
-// information: fullName, phoneNumber, bikes, rentalPeriod.
-// The rental period will be calculated from the 'created_at'
-// value in the table.
-
-// http://localhost:5173/book/confirmation/721

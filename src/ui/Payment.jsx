@@ -148,11 +148,10 @@ function Payment() {
       totalPrice, // number
       paymentLastFour: cardNum.substring(cardNum.length - 4), // string
     };
-    console.log(typeof Number(phoneNumber))
 
     if (!hourlyBookingInfo.numHours && !dailyBookingInfo.numDays) {
       toast.error(
-        "Please go back and provide information about when the booking will take place"
+        "Please provide information about when the booking will take place"
       );
       return;
     }
